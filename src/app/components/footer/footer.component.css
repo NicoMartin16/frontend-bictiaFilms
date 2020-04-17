@@ -1,0 +1,46 @@
+.footer{
+    position: relative;
+    bottom: 0px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #855cb5;
+    height: 250px;
+    color: #f1f4f9;
+}
+
+.footer .slogan {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.footer .slogan h2 {
+    font-size: 42px;
+}
+.footer .slogan p {
+    font-size: 18px;
+    font-style: italic;
+}
+
+.footer .contacto p {
+    margin-top: 5px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 10px;
+    font-weight: 700;
+}
+
+.footer .redes {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.footer .redes a {
+    display: inline-block;
+    padding: 10px;
+    margin: 0 20px;
+    width: 50px;
+    font-size: 50px;
+    text-decoration: none;
+    color: #f1f4f9;
+    border-radius: 50%;
+}
