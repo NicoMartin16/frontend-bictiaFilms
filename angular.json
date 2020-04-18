@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "frontend-bictiaFilms"
+    }
+  },
+  "defaultProject": "frontend-bictiaFilms",
+  "cli": {
+    "analytics": "598986b5-ef72-436d-a419-e3c39d080cce"
+  }
 }
