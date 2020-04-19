@@ -1,0 +1,37 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.cont {
+    margin: 0 !important;
+    height: 80vh;
+    width: 100% !important;
+    background-color: #acf171;
+}
+
+.main {
+    padding: 50px 20px 30px;
+    margin-top: 5rem;
+    background-color: #855cb5;
+    border-radius: 10px;
+}
+
+h4 {
+    text-align: center;
+}
+
+img {
+    margin-left: 50%;
+    margin-bottom: 30px;
+    transform: translate(-50%);
+}
+
+label {
+    color: white;
+}
+
+button {
+    margin-top: 50px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}

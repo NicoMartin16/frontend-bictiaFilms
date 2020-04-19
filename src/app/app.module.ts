@@ -17,6 +17,7 @@ import { ProfilesComponent } from './components/profiles/profiles.component';
 import { AdminFilmsComponent } from './components/admin-films/admin-films.component';
 import { AddFilmComponent } from './components/add-film/add-film.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { UserRegisterComponent } from './components/user-register/user-register.
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

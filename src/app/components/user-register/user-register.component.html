@@ -1,1 +1,57 @@
-<p>user-register works!</p>
+<div class="cont">
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-6 offset-lg-3 offset-md-2">
+            <div class="main">
+
+                <div class="title">
+                    <img src="" alt="logo">
+                </div>
+                
+                <form (ngSubmit)="register()" [formGroup]="form">
+                    <div class="row">
+                        <div class="col">
+                            <h4>Registro</h4>
+                            <div class="control">
+                                <label for="">Nombre: </label>
+                                <input class="form-control" type="text" formControlName="name">
+                            </div>
+                            <div class="control">
+                                <label for="">Apellido: </label>
+                                <input class="form-control" type="text" formControlName="lastName">
+                            </div>
+                            <div class="control">
+                                <label for="">Email: </label>
+                                <input class="form-control" type="text" formControlName="email">
+                            </div>
+                            <div class="control">
+                                <label for="">Contraseña: </label>
+                                <input class="form-control" type="password" formControlName="password">
+                            </div>
+                            <div class="control">
+                                <label for="">Confirme su contraseña: </label>
+                                <input class="form-control" type="password" formControlName="passConfirm">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h4>Información de pago</h4>
+                            <div class="control">
+                                <label for="">Titular de la tarjeta: </label>
+                                <input class="form-control" type="text" formControlName="cardHolder">
+                            </div>
+                            <div class="control">
+                                <label for="">Numero de la tarjeta: </label>
+                                <input class="form-control" type="text" formControlName="cardNumber">
+                            </div>
+                            <div class="control">
+                                <label for="">Fecha de expiración: </label>
+                                <input class="form-control" type="text" formControlName="expDate">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" type="submit">Registrarse</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
