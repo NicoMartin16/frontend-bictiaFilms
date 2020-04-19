@@ -4,22 +4,34 @@
 
 .cont {
     margin: 0 !important;
-    height: 80vh;
     width: 100% !important;
-    background-color: #acf171;
+    background-color: #e9ecef;
+    display: flex;
+    justify-content: center;
+    position: relative;
 }
 
 .main {
-    padding: 50px 20px 30px;
-    margin-top: 10rem;
+    width: 50%;
+    padding: 1rem;
+    margin: 2rem !important;
     background-color: #855cb5;
-    border-radius: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+    .main{
+      width: 80%;
+    }
 }
 
 img {
-    margin-left: 50%;
-    margin-bottom: 30px;
-    transform: translate(-50%);
+    margin-bottom: 1rem;
+
 }
 
 label {
@@ -27,24 +39,15 @@ label {
 }
 
 button {
-    margin-top: 50px;
-    margin-left: 50%;
-    transform: translate(-50%);
-}
-
-.reg {
-    background-color: #855cb5;
-    border-radius: 10px;
-    margin-top: 20px;
-    padding: 20px 10px 5px; 
+    margin-top: 2.5rem;
 }
 
 p {
-
+    margin-top: 1rem;
     color: white;
     text-align: center;
 }
 
 a {
-    color: #acf171  ;
+    color: #63e1d3;
 }

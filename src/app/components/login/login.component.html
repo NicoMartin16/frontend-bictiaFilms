@@ -1,30 +1,23 @@
 <div class="cont">
-    <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4 offset-lg-4 offset-md-3">
-            <div class="main">
-
-                <div class="title">
-                    <img src="" alt="logo">
-                </div>
-                
-                <form (ngSubmit)="login()" [formGroup]="form">
-                    <div class="control">
-                        <label for="">Email: </label>
-                        <input class="form-control" type="text" formControlName="email">
-                    </div>
-                    <div class="control">
-                        <label for="">Password: </label>
-                        <input class="form-control" type="password" formControlName="password">
-                    </div>
-                    
-                    <button class="btn btn-primary" type="submit">Ingresar</button>
-                </form>
-            </div>
-            
-            <div class="reg">
-                <p>¿No tienes cuenta aún? <a [routerLink]="['/registro']">Registrate aquí!</a></p>
-                
-            </div>
+    <div class="main">
+        <div class="title">
+            <img src="../../../assets/img/logo.png" alt="logo">
         </div>
+
+        <form (ngSubmit)="login()" [formGroup]="form">
+            <div class="control">
+                <label for="">Email: </label>
+                <input class="form-control" type="text" formControlName="email">
+            </div>
+            <div class="control">
+                <label for="">Password: </label>
+                <input class="form-control" type="password" formControlName="password">
+            </div>
+
+            <button class="btn btn-primary btn-block" type="submit">Ingresar</button>
+
+            <p>¿No tienes cuenta aún? <a [routerLink]="['/registro']">Registrate aquí!</a></p>
+
+        </form>
     </div>
 </div>
