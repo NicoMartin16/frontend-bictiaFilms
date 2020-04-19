@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+    selector: "navbar",
+    templateUrl: "./navbar.component.html",
+    styleUrls: ["./navbar.component.css"],
 })
 export class NavbarComponent implements OnInit {
+    public logged = null;
+    public admin = true;
+    public user = false;
 
-  constructor() { }
+    constructor() {
+        this.logged = localStorage.getItem('user');
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() { }
+
+    validateRole() {
+        if (this.logged.user === 'admin') {
+            return this.admin = true;
+        }
+    }
 
 }

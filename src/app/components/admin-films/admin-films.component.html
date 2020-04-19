@@ -1,1 +1,21 @@
-<p>admin-films works!</p>
+<navbar></navbar>
+<div class="jumbotron jumbotron-fluid">
+    <h1 class="display-4">Bienvenido a la consola de admin</h1>
+    <p class="lead">
+        Aquí podras editar, eliminar, crear y buscar
+        peliculas y usuarios.
+    </p>
+    <hr class="my-4">
+    <button class="btn btn-lg mr-5" (click)="showMovies()">
+        Peliculas
+    </button>
+    <button class="btn btn-lg" (click)="showUsers()">
+        Usuarios
+    </button>
+</div>
+<section *ngIf="users" class="users">
+    <p>Users works</p>
+</section>
+<section *ngIf="movies" class="movies">
+    <app-add-film></app-add-film>
+</section>

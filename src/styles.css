@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~animate.css/animate.min';
 
-/* 
+/*
 Colores que se utilizaran en la aplicación
 morado: 855cb5
 agua marina: 63e1d3
@@ -9,3 +9,17 @@ verde : acf171
 amarillo: f4f681
 naranja F9754D
 */
+
+*{
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+html{
+    height: 100%;
+    position: relative;
+}
+
+body{
+    height: 100% !important;
+}

@@ -1,0 +1,129 @@
+nav {
+    position: sticky;
+    z-index: 1;
+    height: 5rem;
+    width: 100%;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #855cb5;
+}
+
+nav .items-nav{
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 850px) {
+    nav .hamburguer-icon {
+        position: relative;
+        user-select: none;
+        cursor: pointer;
+    }
+    nav .hamburguer-icon span {
+        width: 1.7rem;
+        height: 0.2rem;
+        position: relative;
+        display: block;
+        margin-top: 0.18rem;
+        background-color: whitesmoke;
+        border-radius: 3px;
+        transition: transform 1s ease-out;
+    }
+    nav #input-menu {
+        display: none;
+        /*DESAPARECER INPUT, SOLO USAREMOS SU FUNCION CHECKED*/
+        /*ANIMACION BOTON DE HAMBURGUESA SE CONVIERTE EN  X*/
+        /*Cambiar altura a 40vh y poder visualizar  las opciones
+        del menu */
+    }
+    nav #input-menu:checked ~ .hamburguer-icon span {
+        opacity: 1;
+        transform: rotate(45deg) translate(-3px, -1px);
+    }
+    nav #input-menu:checked ~ .hamburguer-icon span:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+    }
+    nav #input-menu:checked ~ .hamburguer-icon span:nth-last-child(2) {
+        opacity: 1;
+        transform: rotate(-45deg) translate(-3px, 1px);
+    }
+    nav #input-menu:checked ~ .items-nav {
+        height: 40vh;
+    }
+    nav #input-menu:checked ~ .items-nav li a {
+        opacity: 1;
+    }
+    nav a img {
+        width: 5rem;
+        height: 5rem;
+    }
+    nav .items-nav {
+        list-style: none;
+        padding-left: 1rem;
+        width: 100%;
+        height: 0vh;
+        /* PROPIEDAD MODIFICADA AL PRESIONAR EL CHECKBOX */
+        overflow: hidden;
+        /* PERMITE QUE SE ESCONDA DADO QUE LA ALTURA ES 0 */
+        background: #855cb5;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        transition-delay: 1s;
+        transition: height 1s ease-out;
+    }
+    nav .items-nav li a {
+        color: whitesmoke;
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
+        text-decoration: none;
+    }
+    nav .items-nav li a:hover {
+        border-bottom: white solid 2px;
+    }
+}
+@media screen and (min-width: 850px) {
+
+    nav .hamburguer-icon span {
+        display: none;
+        /*ESCONDER MENU HAMBURGUESA*/
+    }
+    nav #input-menu {
+        display: none;
+    }
+    nav a img {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    nav .items-nav{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    nav .items-nav li {
+        display: inline-flex;
+        margin-left: 3rem;
+    }
+    nav .items-nav li a {
+        color: #060a24;
+        text-decoration: none;
+    }
+}
+
+button{
+    background: none;
+    border: none;
+    /* height: 3rem;
+    width: 4rem; */
+}
+
+/* icons */
+.fas{
+    color: whitesmoke;
+    font-size: 1.2rem;
+}
