@@ -10,7 +10,9 @@ export class AdminFilmsComponent implements OnInit {
     public movies: any;
     public users: any;
 
-    constructor() {}
+    constructor() {
+        this.movies = true;
+    }
 
     ngOnInit() { }
 

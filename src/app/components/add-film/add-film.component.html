@@ -1,107 +1,78 @@
-<div class="accordion" id="accordionExample">
+<div *ngIf="!loading" id='admin-film-list' class="accordion" id="accordionExample">
     <div class="card">
-        <div class="card-header" id="headingOne">
-            <h2 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                    Collapsible Group Item #1
-                </button>
-            </h2>
-        </div>
-
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        <div *ngFor="let i of filmList" class="card">
+            <div class="card-header" id="{{i._id}}">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" attr.data-target="#{{i.collapse}}"
+                        aria-expanded="true" [attr.aria-controls]="i.collapse">
+                        {{i.name}}
+                    </button>
+                </h2>
+            </div>
+            <div id="{{i.collapse}}" class="collapse" [attr.aria-labelledby]="i._id" data-parent="#accordionExample">
+                <div class="film-container">
+                    <img class="film-card-poster" src="{{i.image}}" alt="Movie poster image">
+                    <p class="film-card-description">{{i.sinapsis}}</p>
+                </div>
+                <div class="film-actions">
+                    <button class="btn btn-primary" value="{{i._id}}">Actualizar</button>
+                    <button class="btn btn-danger" value="{{i._id}}">Eliminar</button>
+                </div>
+                <br>
             </div>
         </div>
     </div>
-    <div class="card">
-        <div class="card-header" id="headingTwo">
-            <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="false" aria-controls="collapseTwo">
-                    Collapsible Group Item #2
-                </button>
-            </h2>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-            <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header" id="headingThree">
-            <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
-                    aria-expanded="false" aria-controls="collapseThree">
-                    Collapsible Group Item #3
-                </button>
-            </h2>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-            <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-        </div>
-    </div>
+    <!-- Button trigger modal -->
+    <button id="add-film-btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+        <i class="fas fa-plus"></i>
+    </button>
 </div>
 
-<!-- Button trigger modal -->
-<button id="add-film-btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-    <i class="fas fa-plus"></i>
-</button>
-
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
+<div *ngIf="!loading" class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form #addFilmForm="ngForm" (ngSubmit)="createFilm()">
-                <input name="filmName" #name="ngModel" [(ngModel)]="film.name" type="text"
-                    placeholder="Nombre de la cancion" #name>
-                <input name="filmdate" #date="ngModel" [(ngModel)]="film.date" type="text"
-                    placeholder="Nombre del datea" #date>
-                <input name="filmurl" #url="ngModel" [(ngModel)]="film.url" type="text" placeholder="Nombre del disco"
-                    #namedisc>
-                <!-- <div class="upload-image">
-                    <input name="image" type="file" accept="image/*" class="" (change)="onPhotoSelected($event)"
-                        #photoInput hidden>
+            <form id="add-film-form" #addFilmForm="ngForm" (ngSubmit)="createFilm()">
+                <label for="filmcollapse">Nombre</label>
+                <input name="filmcollapse" collapse="filmcollapse" #collapse="ngModel" [(ngModel)]="film.collapse"
+                    type="text" placeholder="Nombre de la cancion" #collapse>
+                <br>
+                <label for="filmdate">Fecha de lanzamiento</label>
+                <input name="filmdate" collapse="filmdate" #date="ngModel" [(ngModel)]="film.date" type="text"
+                    placeholder="Fecha del lanzamiento de la pelicula" #date>
+                <br>
+                <label for="filmUrl">URL pelicula</label>
+                <input name="filmUrl" collapse="filmUrl" #url="ngModel" [(ngModel)]="film.url" type="text"
+                    placeholder="URL del video" #collapsedisc>
+                <br>
+                <div class="upload-collapse">
+                    <label for="collapse">collapsen/poster peliculas</label>
+                    <input name="collapse" collapse="collapse" type="file" accept="collapse/*"
+                        (change)="onPhotoSelected($event)" #photoInput hidden>
                     <div class="submit-1">
                         <button type="button" class="btn-submit" (click)="photoInput.click($event)">Agregar
                             Foto</button>
                     </div>
                     <div class="submit-2">
-                        <img [src]="photoSelected || '/assets/images/iconos/no-image.png'" class="img-fluid"
-                            alt="No image">
+                        <img [src]="photoSelected || '/assets/img/waiting.gif'" class="img-fluid" alt="No collapse">
                     </div>
-                </div> -->
-
+                </div>
+                <br>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Sinpsis pelicula</label>
-                    <textarea class="form-control" #sinopsis="ngModel" [(ngModel)]="film.sinopsis"
-                        id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <label for="sinopsis">Sinpsis pelicula</label>
+                    <textarea name="sinopsis" collapse='sinopsis' class="form-control" #sinopsis="ngModel"
+                        [(ngModel)]="film.sinopsis" id="sinopsis" rows="3"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Agregar</button>
                 </div>
             </form>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Subir</button>
-                <button type="button" class="btn btn-primary">Agregar</button>
-            </div>
         </div>
     </div>
 </div>
+
+
+<img class="loading" *ngIf="loading" src="https://media.giphy.com/media/l0GRk3KHYv2W6hmJG/giphy.gif"
+    alt="loading state">

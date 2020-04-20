@@ -38,6 +38,7 @@ import { FilmService } from "./services/film.service";
         RouterModule.forRoot(ROUTES),
         ReactiveFormsModule,
         FormsModule,
+        HttpClientModule
     ],
     providers: [FilmService],
     bootstrap: [AppComponent],

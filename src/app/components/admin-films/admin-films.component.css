@@ -1,14 +1,23 @@
-.admin{
+/* .admin{
     margin-top: 3rem;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-}
+} */
 
 .jumbotron{
-    padding-left: 5rem;
+    padding-left: 2rem;
+    margin-bottom: 0;
 }
 
 .btn{
     background-color: #63e1d3
+}
+
+.movies{
+    position: relative;
+}
+
+.users{
+    position: relative;
 }

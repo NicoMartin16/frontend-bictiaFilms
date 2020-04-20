@@ -5,4 +5,5 @@ export class Film {
     url: String;
     image: String;
     sinopsis: String;
+    collapse: String;
 }
