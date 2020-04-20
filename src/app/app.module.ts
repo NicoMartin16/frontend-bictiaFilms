@@ -1,6 +1,9 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 // Rutas
 import { RouterModule } from "@angular/router";
@@ -38,8 +41,14 @@ import { FilmService } from "./services/film.service";
         RouterModule.forRoot(ROUTES),
         ReactiveFormsModule,
         FormsModule,
+        HttpClientModule,
+        FontAwesomeModule
     ],
     providers: [FilmService],
     bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+    constructor(private library: FaIconLibrary){
+        library.addIcons(faPlayCircle);
+    }
+}

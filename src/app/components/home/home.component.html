@@ -1,1 +1,44 @@
-<p>home works!</p>
+<div class="row animated fadeIn slow">
+    <div class="col-md-12 contenedor-portada">
+        <img class="img-fluid" src="../../../assets/img/ejemplo2.jpg" alt="">
+    </div>
+</div>
+<div class="container animated fadeIn slow">
+    <h2 class="mt-3">Mi lista</h2>
+    <div class="row list-films">
+        <div class="col-md-3 col-sm-12 film">
+            <img class="img-fluid" src="{{films[1].image}}" alt="">
+            <a>
+                <i class="far fa-play-circle"></i>
+            </a>
+        </div>
+        <div class="col-md-3 col-sm-12 film">
+            <img class="img-fluid" src="{{films[2].image}}" alt="">
+            <a>
+                <i class="far fa-play-circle"></i>
+            </a>
+        </div>
+        <div class="col-md-3 col-sm-12 film">
+            <img class="img-fluid" src="{{films[3].image}}" alt="">
+            <a>
+                <i class="far fa-play-circle"></i>
+            </a>
+        </div>
+        <div class="col-md-3 col-sm-12 film">
+            <img class="img-fluid" src="{{films[4].image}}" alt="">
+            <a>
+                <i class="far fa-play-circle"></i>
+            </a>
+        </div>
+    </div>
+    <h2>Catalogo</h2>
+    <div class="row list-films">
+        <div class="col-md-3 col-sm-12 film" *ngFor="let film of films">
+            <img class="img-fluid" src="{{film.image}}" alt="">
+            <a>
+                <i class="far fa-play-circle"></i>
+            </a>
+
+        </div>
+    </div>
+</div>
