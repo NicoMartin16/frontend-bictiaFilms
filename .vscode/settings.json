@@ -1,8 +1,0 @@
-{
-    "editor.detectIndentation": false,
-    "[dart]": {
-
-    },
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true
-}
