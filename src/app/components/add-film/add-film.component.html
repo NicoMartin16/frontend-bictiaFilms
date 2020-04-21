@@ -35,8 +35,8 @@
         <div class="modal-content">
             <form id="add-film-form" #addFilmForm="ngForm" (ngSubmit)="createFilm()">
                 <label for="filmcollapse">Nombre</label>
-                <input name="filmcollapse" collapse="filmcollapse" #collapse="ngModel" [(ngModel)]="film.collapse"
-                    type="text" placeholder="Nombre de la cancion" #collapse>
+                <input name="filmcollapse" collapse="filmcollapse" #name="ngModel" [(ngModel)]="film.name" type="text"
+                    placeholder="Nombre de la cancion" #name>
                 <br>
                 <label for="filmdate">Fecha de lanzamiento</label>
                 <input name="filmdate" collapse="filmdate" #date="ngModel" [(ngModel)]="film.date" type="text"
@@ -48,11 +48,12 @@
                 <br>
                 <div class="upload-collapse">
                     <label for="collapse">collapsen/poster peliculas</label>
-                    <input name="collapse" collapse="collapse" type="file" accept="collapse/*"
+                    <input name="collapse" collapse="collapse" type="file" accept="image/*"
                         (change)="onPhotoSelected($event)" #photoInput hidden>
                     <div class="submit-1">
-                        <button type="button" class="btn-submit" (click)="photoInput.click($event)">Agregar
-                            Foto</button>
+                        <button type="button" class="btn-submit" (click)="photoInput.click($event)">
+                            Agregar Foto
+                        </button>
                     </div>
                     <div class="submit-2">
                         <img [src]="photoSelected || '/assets/img/waiting.gif'" class="img-fluid" alt="No collapse">
@@ -66,7 +67,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Agregar</button>
+                    <button type="submit" class="btn btn-primary">Agregar</button>
                 </div>
             </form>
         </div>

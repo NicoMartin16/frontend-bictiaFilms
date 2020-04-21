@@ -7,17 +7,20 @@ import { map } from "rxjs/operators";
 @Injectable()
 export class FilmService {
     apiURL = 'http://localhost:3000';
-    private _token = JSON.parse(localStorage.getItem('token'));
+    private token = localStorage.getItem('token');
     private headers = {
-        headers: new HttpHeaders({ "Content-Type": "application/json" }),
+        headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            Authorization : `bearer ${this.token}`
+        })
     };
 
     constructor(private http: HttpClient) {}
 
-    createSong(film) {
-        const body = JSON.stringify(film);
+    createFilm(body) {
+
         return this.http
-            .post(`${this.apiURL}/music/create`, body, this.headers)
+            .post(`${this.apiURL}/film`, body)
             .pipe((res) => res);
     }
 

@@ -42,6 +42,7 @@ input, textarea{
 }
 
 .film-card-description{
+    height: 90%;
     width: 52%;
     overflow: hidden;
 }
@@ -59,5 +60,5 @@ input, textarea{
 
 .loading{
     width: 100%;
-    height: 30rem;
+    height: 20rem;
 }

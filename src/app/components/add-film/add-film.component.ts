@@ -18,7 +18,7 @@ export class AddFilmComponent implements OnInit {
     public film: Film;
     public photoSelected: string | ArrayBuffer;
     public photofile: File;
-    public filmList
+    public filmList;
     public loading = true;
 
     constructor(
@@ -28,11 +28,11 @@ export class AddFilmComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.service.getSong().subscribe((res: any) => {
-            if (res.statusCode !== 201) {
-                this.filmList.push('No hay canciones');
+        this.service.getFilms().subscribe((res: any) => {
+            if (!res) {
+                console.log('error');
             } else {
-                this.filmList = res.message;
+                this.filmList = res;
                 for (const i of this.filmList) {
                     const randomName = i.name.split('')[0];
                     i.collapse = `${randomName + new Date().getMilliseconds()}`;
@@ -43,6 +43,18 @@ export class AddFilmComponent implements OnInit {
     }
 
     createFilm() {
+        const data = new FormData();
+        data.append('image', this.photofile, this.photofile.name);
+        data.append('name', this.film.name);
+        data.append('date', this.film.date);
+        data.append('url', this.film.url);
+        data.append('sinopsis', this.film.sinopsis);
+        // const image = this.setupFile(this.photofile);
+        this.service.createFilm(data).subscribe((res: any) => {
+            if (res.statusCode === 200) {
+                console.log('Creada correctamente');
+            }
+        });
     }
 
     onPhotoSelected(event: HtmlInputEvent): void {
@@ -55,3 +67,4 @@ export class AddFilmComponent implements OnInit {
         }
     }
 }
+
