@@ -11,13 +11,14 @@
 
 .main {
     padding: 50px 20px 30px;
-    margin-top: 5rem;
+    margin-top: 3rem;
     background-color: #855cb5;
     border-radius: 10px;
 }
 
 h4 {
     text-align: center;
+    color: #acf171;
 }
 
 img {
