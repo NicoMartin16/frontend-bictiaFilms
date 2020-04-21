@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Parent } from '../models/parent';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,18 @@ export class ParentService {
 
   createParent(parent: Parent): Observable<Parent>{
     return this._http.post<any>(`${this.URLAPI}/parent`, parent, {headers: this.headers}).pipe(
-      map(res => res.message as Parent)
+      map(res => res.message as Parent),
+      catchError(e => {
+        if(e.status == 400) {
+          return throwError(e);
+        }
+        swal.fire({
+          title: 'Error en la peticion',
+          text: e.error.error,
+          icon: 'error'
+        });
+        return throwError(e);
+      })
     );
   }
 
