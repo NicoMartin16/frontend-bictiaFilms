@@ -22,10 +22,17 @@
                 <i class="fas fa-user-cog"></i>
             </button>
         </li>
-        <li>
+        <li *ngIf="admin">
             <a routerLink="admin">
                 <button>
                     <i class="fas fa-crown"></i>
+                </button>
+            </a>
+        </li>
+        <li>
+            <a routerLink="">
+                <button (click)="logOut()">
+                    <i class="fas fa-sign-out-alt"></i>
                 </button>
             </a>
         </li>
