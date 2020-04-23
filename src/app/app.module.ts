@@ -23,6 +23,7 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 // Servicios
 
 import { FilmService } from "./services/film.service";
+import { AuthService } from "./services/auth/auth.service";
 
 @NgModule({
     declarations: [
@@ -44,7 +45,10 @@ import { FilmService } from "./services/film.service";
         HttpClientModule,
         FontAwesomeModule
     ],
-    providers: [FilmService],
+    providers: [
+        FilmService,
+        AuthService
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {

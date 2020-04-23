@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Film } from "../../models/film";
 import { Form } from "@angular/forms";
 import { FilmService } from "../../services/film.service";
-
+import swal from 'sweetalert2';
 
 interface HtmlInputEvent extends Event {
   target: HTMLInputElement & EventTarget;
@@ -51,8 +51,18 @@ export class AddFilmComponent implements OnInit {
         data.append('sinopsis', this.film.sinopsis);
         // const image = this.setupFile(this.photofile);
         this.service.createFilm(data).subscribe((res: any) => {
-            if (res.statusCode === 200) {
-                console.log('Creada correctamente');
+            if (res.statusCode === 201) {
+                swal.fire({
+                    title: 'Pelicula creada',
+                    text: `La pelicula ha sido creada correctamente`,
+                    icon: 'success'
+                });
+            } else {
+                swal.fire({
+                    title: 'Alhgo ha salido mal',
+                    text: `Ups compruebe los datos y vuelva a intentar por favor`,
+                    icon: 'error'
+                });
             }
         });
     }
