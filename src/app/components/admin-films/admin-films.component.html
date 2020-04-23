@@ -1,26 +1,21 @@
+<navbar></navbar>
 <div class="jumbotron jumbotron-fluid">
-    <h1 class="display-4">Bienvenido a la consola de admin</h1>
-    <p class="lead">
-        Aquí podras editar, eliminar, crear y buscar
-        peliculas y usuarios.
-    </p>
-    <hr class="my-4">
-    <button class="btn btn-lg mr-5" (click)="showMovies()">
-        Peliculas
-    </button>
-    <button class="btn btn-lg" (click)="showUsers()">
-        Usuarios
-    </button>
+  <h1 class="display-4">Bienvenido a la consola de admin</h1>
+  <p class="lead">
+    Aquí podras editar, eliminar, crear y buscar
+    peliculas y usuarios.
+  </p>
+  <hr class="my-4">
+  <button class="btn btn-lg mr-5" (click)="showMovies()">
+    Peliculas
+  </button>
+  <button class="btn btn-lg" (click)="showUsers()">
+    Usuarios
+  </button>
 </div>
 <section *ngIf="users" class="users">
-    <ul class="list-group">
-        <li class="list-group-item active">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
+  <app-user-managment></app-user-managment>
 </section>
 <section *ngIf="movies" class="movies">
-    <app-add-film></app-add-film>
+  <app-add-film></app-add-film>
 </section>

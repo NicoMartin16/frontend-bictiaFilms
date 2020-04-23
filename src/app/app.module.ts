@@ -24,6 +24,7 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
 import { FilmService } from "./services/film.service";
 import { AuthService } from "./services/auth/auth.service";
+import { UserManagmentComponent } from './components/user-managment/user-managment.component';
 
 @NgModule({
     declarations: [
@@ -36,6 +37,7 @@ import { AuthService } from "./services/auth/auth.service";
         AdminFilmsComponent,
         AddFilmComponent,
         UserRegisterComponent,
+        UserManagmentComponent,
     ],
     imports: [
         BrowserModule,
