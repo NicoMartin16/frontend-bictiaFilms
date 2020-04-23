@@ -26,4 +26,8 @@ export class FilmService {
             map(res => res.message as Film[])
         );
     }
+
+    getFilmById(id): Observable<Film>{
+        return this.http.get<any>(`${this.apiURL}/film?id=${id}`);
+    }
 }

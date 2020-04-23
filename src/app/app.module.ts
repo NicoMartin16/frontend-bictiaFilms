@@ -23,6 +23,8 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 // Servicios
 
 import { FilmService } from "./services/film.service";
+import { ViewFilmComponent } from './components/view-film/view-film.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
     declarations: [
@@ -35,6 +37,8 @@ import { FilmService } from "./services/film.service";
         AdminFilmsComponent,
         AddFilmComponent,
         UserRegisterComponent,
+        ViewFilmComponent,
+        SafePipe
     ],
     imports: [
         BrowserModule,

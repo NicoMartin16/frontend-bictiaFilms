@@ -6,25 +6,25 @@
 <div class="container animated fadeIn slow">
     <h2 class="mt-3">Mi lista</h2>
     <div class="row list-films">
-        <div class="col-md-3 col-sm-12 film">
+        <div class="col-md-3 col-sm-12 film" *ngIf="films" [routerLink]="['/film', films[1]._id]">
             <img class="img-fluid" src="{{films[1].image}}" alt="">
             <a>
                 <i class="far fa-play-circle"></i>
             </a>
         </div>
-        <div class="col-md-3 col-sm-12 film">
+        <div class="col-md-3 col-sm-12 film" *ngIf="films" [routerLink]="['/film', films[2]._id]">
             <img class="img-fluid" src="{{films[2].image}}" alt="">
             <a>
                 <i class="far fa-play-circle"></i>
             </a>
         </div>
-        <div class="col-md-3 col-sm-12 film">
+        <div class="col-md-3 col-sm-12 film" *ngIf="films" [routerLink]="['/film', films[3]._id]">
             <img class="img-fluid" src="{{films[3].image}}" alt="">
             <a>
                 <i class="far fa-play-circle"></i>
             </a>
         </div>
-        <div class="col-md-3 col-sm-12 film">
+        <div class="col-md-3 col-sm-12 film" *ngIf="films" [routerLink]="['/film', films[4]._id]">
             <img class="img-fluid" src="{{films[4].image}}" alt="">
             <a>
                 <i class="far fa-play-circle"></i>
@@ -33,7 +33,7 @@
     </div>
     <h2>Catalogo</h2>
     <div class="row list-films">
-        <div class="col-md-3 col-sm-12 film" *ngFor="let film of films">
+        <div class="col-md-3 col-sm-12 film" *ngFor="let film of films" [routerLink]="['/film', film._id]">
             <img class="img-fluid" src="{{film.image}}" alt="">
             <a>
                 <i class="far fa-play-circle"></i>
