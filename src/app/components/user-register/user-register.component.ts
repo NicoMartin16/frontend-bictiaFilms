@@ -91,13 +91,13 @@ export class UserRegisterComponent implements OnInit {
 
   buildForm() {
     this.form = this.formBuilder.group({
-      email: ['', [Validators.required]],
-      name: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      password: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
+      name: ['', [Validators.required, Validators.minLength(2) ]],
+      lastName: ['', [Validators.required, Validators.minLength(2)]],
+      password: ['', [Validators.required, Validators.minLength(2)]],
       birthDate: ['', [Validators.required]],
-      phone: ['', [Validators.required]],
-      cardNumber: ['', [Validators.required]],
+      phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+      cardNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       cardHolder: ['', [Validators.required]],
       expDate: ['', [Validators.required]],
     })

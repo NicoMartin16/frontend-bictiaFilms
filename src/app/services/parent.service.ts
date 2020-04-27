@@ -9,29 +9,26 @@ import swal from "sweetalert2";
   providedIn: "root",
 })
 export class ParentService {
-  private URLAPI = "http://localhost:3000";
-  private headers = new HttpHeaders().set("Content-Type", "application/json");
-  constructor(private _http: HttpClient) {}
 
-  createParent(parent: Parent): Observable<Parent> {
-    return this._http
-      .post<any>(`${this.URLAPI}/parent`, parent, {
-        headers: this.headers,
-      })
-      .pipe(
-        map((res) => res.message as Parent),
-        catchError((e) => {
-          if (e.status == 400) {
-            return throwError(e);
-          }
-          swal.fire({
-            title: "Error en la peticion",
-            text: e.error.error,
-            icon: "error",
-          });
+  private URLAPI = 'http://localhost:3000';
+  private headers = new HttpHeaders()
+                        .set('Content-Type', 'application/json');
+  constructor(private _http: HttpClient) { }
+
+  createParent(parent: Parent): Observable<Parent>{
+    return this._http.post<any>(`${this.URLAPI}/parent`, parent, {headers: this.headers}).pipe(
+      map(res => res.message as Parent),
+      catchError(e => {
+        if(e.status == 400) {
           return throwError(e);
-        })
-      );
+        }
+        swal.fire({
+          title: 'Error al registrar el usuario',
+          icon: 'error'
+        });
+        return throwError(e);
+      })
+    );
   }
 
   getParents() {

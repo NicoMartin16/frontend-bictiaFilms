@@ -38,7 +38,7 @@
       <form id="add-film-form" #addFilmForm="ngForm" (ngSubmit)="createFilm()">
         <label for="filmcollapse">Nombre</label>
         <input name="filmcollapse" collapse="filmcollapse" #name="ngModel" [(ngModel)]="film.name" type="text"
-          placeholder="Nombre de la cancion" #name>
+          placeholder="Nombre del film" #name>
         <br>
         <label for="filmdate">Fecha de lanzamiento</label>
         <input name="filmdate" collapse="filmdate" #date="ngModel" [(ngModel)]="film.date" type="date"
