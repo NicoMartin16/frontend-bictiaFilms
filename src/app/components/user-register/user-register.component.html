@@ -1,116 +1,93 @@
 <div class="cont">
-    <div class="row">
-        <div class="col-sm-12 col-md-8 col-lg-6 offset-lg-3 offset-md-2">
-            <div class="main">
-
-                <div class="title">
-                    <img src="../../../assets/img/logo.png" alt="logo">
-                </div>
-
-                <form (ngSubmit)="register()" [formGroup]="form">
-                    <div class="row">
-                        <div class="col">
-                            <h4>Registro</h4>
-                            <div class="control">
-                                <label for="">Nombre: </label>
-                                <input class="form-control" 
-                                       type="text" 
-                                       formControlName="name"
-                                       [class.is-invalid]="nameNoValidate">
-                                <div class="text text-danger" *ngIf="nameNoValidate" role="alert">
-                                    El nombre es requerido
-                                </div>
-                            </div>
-                            <div class="control">
-                                <label for="">Apellido: </label>
-                                <input class="form-control" 
-                                       type="text" 
-                                       formControlName="lastName"
-                                       [class.is-invalid]="lastNameNoValidate">
-                                <div class="text text-danger" *ngIf="lastNameNoValidate" role="alert">
-                                    El apellido es requerido
-                                </div>
-                            </div>
-                            <div class="control">
-                                <label for="">Email: </label>
-                                <input class="form-control" 
-                                       type="text" 
-                                       formControlName="email"
-                                       [class.is-invalid]="emailNoValidate">
-                                <div class="text text-danger" *ngIf="emailNoValidate" role="alert">
-                                    El correo es requerido
-                                </div>
-                            </div>
-                            <div class="control">
-                                <label for="">Fecha nacimiento: </label>
-                                <input class="form-control" 
-                                       type="date" 
-                                       formControlName="birthDate"
-                                       [class.is-invalid]="birthDateNoValidate">
-                                <div class="text text-danger" *ngIf="birthDateNoValidate" role="alert">
-                                    La fecha es requerido
-                                </div>
-                            </div>
-                            <div class="control">
-                                <label for="">Phone: </label>
-                                <input class="form-control" 
-                                       type="text" 
-                                       formControlName="phone"
-                                       [class.is-invalid]="phoneNoValidate">
-                                <div class="text text-danger" *ngIf="phoneNoValidate" role="alert">
-                                    El telefono es requerido
-                                </div>
-                            </div>
-                            <div class="control">
-                                <label for="">Contraseña: </label>
-                                <input class="form-control" 
-                                       type="password" 
-                                       formControlName="password"
-                                       [class.is-invalid]="passwordNoValidate">
-                                <div class="text text-danger" *ngIf="passwordNoValidate" role="alert">
-                                    La contraseña es requerido
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="col">
-                            <h4>Información de pago</h4>
-                            <div class="control">
-                                <label for="">Titular de la tarjeta: </label>
-                                <input class="form-control" 
-                                       type="text" 
-                                       formControlName="cardHolder"
-                                       [class.is-invalid]="cardHolderNoValidate">
-                                <div class="text text-danger" *ngIf="cardHolderNoValidate" role="alert">
-                                    El titular es requerido
-                                </div>
-                            </div>
-                            <div class="control">
-                                <label for="">Numero de la tarjeta: </label>
-                                <input class="form-control" 
-                                       type="text" 
-                                       formControlName="cardNumber"
-                                       [class.is-invalid]="cardNumberNoValidate">
-                                <div class="text text-danger" *ngIf="cardNumberNoValidate" role="alert">
-                                    El numero de tarjeta no es valido
-                                </div>
-                            </div>
-                            <div class="control">
-                                <label for="">Fecha de expiración: </label>
-                                <input class="form-control" 
-                                       type="date" 
-                                       formControlName="expDate"
-                                       [class.is-invalid]="expDateNoValidate">
-                                <div class="text text-danger" *ngIf="expDateNoValidate" role="alert">
-                                    La fecha de expiración es requerido
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-success" type="submit">Registrarse</button>
-                </form>
-            </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-6 offset-lg-3 offset-md-2">
+      <div class="main">
+        <div class="title">
+          <img src="assets/img/logo.png" alt="logo">
         </div>
+        <form (ngSubmit)="register()" [formGroup]="form">
+          <div class="row">
+            <div class="col">
+              <h4>Registro</h4>
+              <div class="control">
+                <label for="">Nombre: </label>
+                <input class="form-control" type="text" formControlName="name" [class.is-invalid]="nameNoValidate">
+                <div class="text text-danger" *ngIf="nameNoValidate" role="alert">
+                  El nombre es requerido
+                </div>
+              </div>
+              <div class="control">
+                <label for="">Apellido: </label>
+                <input class="form-control" type="text" formControlName="lastName"
+                  [class.is-invalid]="lastNameNoValidate">
+                <div class="text text-danger" *ngIf="lastNameNoValidate" role="alert">
+                  El apellido es requerido
+                </div>
+              </div>
+              <div class="control">
+                <label for="">Email: </label>
+                <input class="form-control" type="text" formControlName="email" [class.is-invalid]="emailNoValidate">
+                <div class="text text-danger" *ngIf="emailNoValidate" role="alert">
+                  El correo es requerido
+                </div>
+              </div>
+              <div class="control">
+                <label for="">Fecha nacimiento: </label>
+                <input class="form-control" type="date" formControlName="birthDate"
+                  [class.is-invalid]="birthDateNoValidate">
+                <div class="text text-danger" *ngIf="birthDateNoValidate" role="alert">
+                  La fecha es requerido
+                </div>
+              </div>
+              <div class="control">
+                <label for="">Phone: </label>
+                <input class="form-control" type="text" formControlName="phone" [class.is-invalid]="phoneNoValidate">
+                <div class="text text-danger" *ngIf="phoneNoValidate" role="alert">
+                  El telefono es requerido
+                </div>
+              </div>
+              <div class="control">
+                <label for="">Contraseña: </label>
+                <input class="form-control" type="password" formControlName="password"
+                  [class.is-invalid]="passwordNoValidate">
+                <div class="text text-danger" *ngIf="passwordNoValidate" role="alert">
+                  La contraseña es requerido
+                </div>
+              </div>
+
+            </div>
+            <div class="col">
+              <h4>Información de pago</h4>
+              <div class="control">
+                <label for="">Titular de la tarjeta: </label>
+                <input class="form-control" type="text" formControlName="cardHolder"
+                  [class.is-invalid]="cardHolderNoValidate">
+                <div class="text text-danger" *ngIf="cardHolderNoValidate" role="alert">
+                  El titular es requerido
+                </div>
+              </div>
+              <div class="control">
+                <label for="">Numero de la tarjeta: </label>
+                <input class="form-control" type="text" formControlName="cardNumber"
+                  [class.is-invalid]="cardNumberNoValidate">
+                <div class="text text-danger" *ngIf="cardNumberNoValidate" role="alert">
+                  El numero de tarjeta no es valido
+                </div>
+              </div>
+              <div class="control">
+                <label for="">Fecha de expiración: </label>
+                <input class="form-control" type="date" formControlName="expDate"
+                  [class.is-invalid]="expDateNoValidate">
+                <div class="text text-danger" *ngIf="expDateNoValidate" role="alert">
+                  La fecha de expiración es requerido
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-success" type="submit">Registrarse</button>
+        </form>
+      </div>
     </div>
+  </div>
 </div>

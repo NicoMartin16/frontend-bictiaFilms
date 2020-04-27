@@ -1,0 +1,51 @@
+/*  purple 855cb5
+    gray  e9ecef */
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.main {
+    margin: 0 !important;
+    width: 100% !important;
+    height: 78vh;
+    background-color: #e9ecef;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h4 {
+    text-align: center;
+}
+
+.cont {
+    display: flex;
+    justify-content: center;
+    border: red;
+    padding: 20px;
+    margin: 10px
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: 10px;
+}
+
+img {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+img:hover {
+    filter: opacity(70%);
+}
+
+p {
+    text-align: center;
+}
