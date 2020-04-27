@@ -63,7 +63,9 @@ export class AddFilmComponent implements OnInit {
         this.filmList = res;
         for (const i of this.filmList) {
           const randomName = i.name.split("")[0];
-          i.collapse = `${randomName + Math.random()}`;
+          const randomNumber = Math.random().toString().split('.').join('');
+          console.log(randomNumber)
+          i.collapse = `${randomName + randomNumber}`;
           this.loading = false;
         }
       }

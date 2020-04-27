@@ -1,3 +1,13 @@
+.movie-list{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+#accordionExample{
+  width: 80%;
+}
 
 #add-film-form{
     display: flex;

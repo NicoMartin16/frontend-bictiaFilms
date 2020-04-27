@@ -26,20 +26,19 @@
   <table *ngIf="parents" class="table">
     <thead>
       <tr>
-        <th scope="col">ID</th>
         <th scope="col">Nombres</th>
         <th scope="col">Correo</th>
-        <th scope="col">Acciones</th>
+        <th scope="col-4">Acciones</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let i of parentList">
-        <th scope="row">{{i._id}}</th>
         <td>{{i.name}}</td>
         <td>{{i.email}}</td>
         <td>
-          <button> Actualizar </button>
-          <button> Eliminar </button>
+          <button value="{{i._id}}" class="user-actions"> Actualizar </button>
+          <br>
+          <button value="{{i._id}}" class="user-actions btn-danger"> Eliminar </button>
         </td>
       </tr>
     </tbody>
@@ -47,20 +46,19 @@
   <table *ngIf="admins" class="table">
     <thead>
       <tr>
-        <th scope="col">ID</th>
         <th scope="col">Nombres</th>
         <th scope="col">Correo</th>
-        <th scope="col">Acciones</th>
+        <th scope="col-4">Acciones</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let i of adminList">
-        <th scope="row">{{i._id}}</th>
         <td>{{i.name}}</td>
         <td>{{i.email}}</td>
         <td>
-          <button> Actualizar </button>
-          <button> Eliminar </button>
+          <button value="{{i._id}}" class="user-actions"> Actualizar </button>
+          <br>
+          <button value="{{i._id}}" class="user-actions btn-danger"> Eliminar </button>
         </td>
       </tr>
     </tbody>
