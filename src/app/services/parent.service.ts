@@ -23,8 +23,7 @@ export class ParentService {
           return throwError(e);
         }
         swal.fire({
-          title: 'Error en la peticion',
-          text: e.error.error,
+          title: 'Error al registrar el usuario',
           icon: 'error'
         });
         return throwError(e);
