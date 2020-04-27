@@ -1,0 +1,66 @@
+<section class="user-managment">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Administradores</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Adminstra usuarios con permisos superiores</h6>
+      <p class="card-text">
+        Actualiza, elimina o crea usuarios de rol administrador (Solo aquí podras crearlos).
+      </p>
+      <button (click)="showAdmins()"> Acceder </button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Padres</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Adminstra usuarios registrados (Padres) </h6>
+      <p class="card-text">
+        Actualiza, revisa y elimina usuarios. Recuerda que aquí no puedes crear usuarios.
+      </p>
+      <button (click)="showParents()"> Acceder </button>
+    </div>
+  </div>
+</section>
+
+<section class="user-list">
+  <table *ngIf="parents" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombres</th>
+        <th scope="col">Correo</th>
+        <th scope="col-4">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of parentList">
+        <td>{{i.name}}</td>
+        <td>{{i.email}}</td>
+        <td>
+          <button value="{{i._id}}" class="user-actions"> Actualizar </button>
+          <br>
+          <button value="{{i._id}}" class="user-actions btn-danger"> Eliminar </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table *ngIf="admins" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombres</th>
+        <th scope="col">Correo</th>
+        <th scope="col-4">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of adminList">
+        <td>{{i.name}}</td>
+        <td>{{i.email}}</td>
+        <td>
+          <button value="{{i._id}}" class="user-actions"> Actualizar </button>
+          <br>
+          <button value="{{i._id}}" class="user-actions btn-danger"> Eliminar </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

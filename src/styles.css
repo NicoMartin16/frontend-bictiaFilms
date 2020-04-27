@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~animate.css/animate.min';
+@import "~animate.css/animate.min";
 
 /*
 Colores que se utilizaran en la aplicación
@@ -10,16 +10,28 @@ amarillo: f4f681
 naranja F9754D
 */
 
-*{
+* {
     border: 0;
     padding: 0;
     margin: 0;
 }
-html{
-    height: 100%;
+html {
     position: relative;
+    min-height: 100%;
 }
 
-body{
+body {
     height: 100% !important;
+    background-color: #e9ecef;
+    margin: 0;
+    margin-bottom: 250px;
+}
+
+.btn-success,
+.btn-success:hover,
+.btn-success:active,
+.btn-success:visited,
+.btn-success:focus {
+    background-color: #acf171 !important;
+    border: 1px solid #acf171;
 }

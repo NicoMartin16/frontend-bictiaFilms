@@ -7,19 +7,35 @@ import { Component, OnInit } from "@angular/core";
 })
 export class NavbarComponent implements OnInit {
     public logged = null;
-    public admin = true;
+    public admin = false;
     public user = false;
 
     constructor() {
-        this.logged = localStorage.getItem('user');
+        this.logged = this.parseJwt(localStorage.getItem('token'));
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.validateRole();
+    }
 
     validateRole() {
-        if (this.logged.user === 'admin') {
+        console.log(this.logged)
+        if (this.logged.rol === 'ROL_ADMIN') {
             return this.admin = true;
         }
+    }
+
+    // Decodificar el token
+    parseJwt(token: any) {
+        if (token){
+            const base64Url = token.split('.')[1];
+            const base64 = base64Url.replace('-', '+').replace('_', '/');
+            return JSON.parse(window.atob(base64));
+        }
+    }
+
+    logOut() {
+        localStorage.setItem('token', '');
     }
 
 }

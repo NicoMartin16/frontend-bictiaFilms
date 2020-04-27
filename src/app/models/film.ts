@@ -1,8 +1,9 @@
 export class Film {
-    _id: String;
-    name: String;
-    date: String;
-    url: String;
-    image: String;
-    sinopsis: String;
+    _id: string;
+    name: string;
+    date: string;
+    url: string;
+    image: any;
+    sinopsis: string;
+    collapse: string;
 }

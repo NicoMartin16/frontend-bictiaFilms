@@ -1,28 +1,30 @@
 * {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 .cont {
-    margin: 0 !important;
     height: 80vh;
     width: 100% !important;
-    background-color: #acf171;
+    background-color: #e9ecef;
 }
 
 .main {
     padding: 50px 20px 30px;
-    margin-top: 5rem;
+    margin-top: 3rem;
     background-color: #855cb5;
     border-radius: 10px;
 }
 
 h4 {
     text-align: center;
+    color: #acf171;
 }
 
 img {
+    vertical-align: top;
+    width: 70px;
     margin-left: 50%;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     transform: translate(-50%);
 }
 

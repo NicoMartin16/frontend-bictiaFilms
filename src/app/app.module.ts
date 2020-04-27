@@ -1,6 +1,9 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 // Rutas
 import { RouterModule } from "@angular/router";
@@ -20,6 +23,10 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 // Servicios
 
 import { FilmService } from "./services/film.service";
+import { AuthService } from "./services/auth/auth.service";
+import { UserManagmentComponent } from './components/user-managment/user-managment.component';
+import { ViewFilmComponent } from './components/view-film/view-film.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
     declarations: [
@@ -32,14 +39,26 @@ import { FilmService } from "./services/film.service";
         AdminFilmsComponent,
         AddFilmComponent,
         UserRegisterComponent,
+        UserManagmentComponent,
+        ViewFilmComponent,
+        SafePipe
     ],
     imports: [
         BrowserModule,
         RouterModule.forRoot(ROUTES),
         ReactiveFormsModule,
         FormsModule,
+        HttpClientModule,
+        FontAwesomeModule
     ],
-    providers: [FilmService],
+    providers: [
+        FilmService,
+        AuthService
+    ],
     bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+    constructor(private library: FaIconLibrary){
+        library.addIcons(faPlayCircle);
+    }
+}

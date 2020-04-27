@@ -1,9 +1,11 @@
 .footer{
-    position: relative;
+    position: absolute;
     bottom: 0px;
     font-family: 'Open Sans', sans-serif;
     background-color: #855cb5;
     color: #f1f4f9;
+    height: 250px;
+    width: 100%;
 }
 
 .footer .slogan {
