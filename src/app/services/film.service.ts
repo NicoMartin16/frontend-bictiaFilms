@@ -23,8 +23,12 @@ export class FilmService {
   }
 
   getFilms(): Observable<Film[]> {
-    return this.http
-      .get<any>(`${this.apiURL}/film`)
-      .pipe(map((res) => res.message as Film[]));
+      return this.http.get<any>(`${this.apiURL}/film`).pipe(
+          map(res => res.message as Film[])
+      );
+  }
+
+  getFilmById(id): Observable<Film>{
+      return this.http.get<any>(`${this.apiURL}/film?id=${id}`);
   }
 }

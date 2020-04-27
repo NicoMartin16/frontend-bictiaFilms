@@ -47,7 +47,7 @@ export class AddFilmComponent implements OnInit {
         return this.getFilms();
       } else {
         swal.fire({
-          title: "Alhgo ha salido mal",
+          title: "Algo ha salido mal",
           text: `Ups compruebe los datos y vuelva a intentar por favor`,
           icon: "error",
         });
@@ -57,18 +57,31 @@ export class AddFilmComponent implements OnInit {
 
   getFilms() {
     this.filmService.getFilms().subscribe((res: any) => {
+      console.log(res);
       if (!res) {
-        console.log("error");
+        swal.fire({
+          title: "No hay peliculas disponibles",
+          text: `Lastimosamente no hay peliculas disponibles`,
+          icon: "error",
+        });
       } else {
         this.filmList = res;
         for (const i of this.filmList) {
           const randomName = i.name.split("")[0];
           const randomNumber = Math.random().toString().split('.').join('');
-          console.log(randomNumber)
           i.collapse = `${randomName + randomNumber}`;
           this.loading = false;
         }
       }
+    },(error: any) => {
+      if (error) {
+          swal.fire({
+            title: "No hay peliculas disponibles",
+            text: `Lastimosamente no hay peliculas disponibles`,
+            icon: "error",
+          });
+      }
+      this.loading = false;
     });
   }
 
