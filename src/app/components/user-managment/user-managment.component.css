@@ -51,6 +51,12 @@ button{
   align-items: center;
 }
 
+.admin-ui{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .table{
   width: 80%;
 }
@@ -59,4 +65,14 @@ button{
   width: 4rem;
 }
 
+.create-admin{
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
 
+.create-admin button{
+  width: 30%;
+}

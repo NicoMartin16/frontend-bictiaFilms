@@ -13,5 +13,6 @@ export const ROUTES: Routes = [
     { path: 'admin', component: AdminFilmsComponent },
     { path: 'film/:idFilm', component: ViewFilmComponent },
     { path: 'profiles', component: ProfilesComponent },
+    { path: 'myprofile', component: ViewFilmComponent },
     { path: '**', pathMatch: 'full', redirectTo: '' }
 ];

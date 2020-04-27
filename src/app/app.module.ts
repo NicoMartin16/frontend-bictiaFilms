@@ -27,6 +27,7 @@ import { AuthService } from "./services/auth/auth.service";
 import { UserManagmentComponent } from './components/user-managment/user-managment.component';
 import { ViewFilmComponent } from './components/view-film/view-film.component';
 import { SafePipe } from './pipes/safe.pipe';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
 
 @NgModule({
     declarations: [
@@ -41,7 +42,8 @@ import { SafePipe } from './pipes/safe.pipe';
         UserRegisterComponent,
         UserManagmentComponent,
         ViewFilmComponent,
-        SafePipe
+        SafePipe,
+        MyProfileComponent
     ],
     imports: [
         BrowserModule,
