@@ -1,36 +1,42 @@
 <section id="myprofile-details">
-  <h1>
-    Datos del usuario
-  </h1>
-  <form class="form-inline">
-    <p>
-      {{user.email}}
-    </p>
-    <div class="form-group ml-4">
-      <label for="inputEmail2" class="sr-only"> Coloque su uevo correo</label>
-      <input type="email" class="form-control" id="inputEmail2" placeholder="Nuevo correo">
-    </div>
-    <button type="submit" class="btn btn-primary ml-5">Actualizar correo</button>
-  </form>
-  <br>
-  <button type="button" class="btn btn-success btn-pw" data-toggle="modal" data-target="#staticBackdrop">
-    Cambiar contraseña
-  </button>
+  <div class="myprofile-container">
+    <h1>
+      Datos del usuario
+    </h1>
+    <form class="form-inline myprofile-update" (ngSubmit)="updateProfile()" [formGroup]="form">
+      <p>
+        {{user.email}}
+      </p>
+      <div class="form-group ml-4">
+        <label for="email" class="sr-only"> Coloque su uevo correo</label>
+        <input name="email" formControlName="email" type="email" class="form-control" id="inputEmail2"
+          placeholder="Nuevo correo">
+      </div>
+      <button type="submit" class="btn btn-primary">
+        Actualizar correo
+      </button>
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop">
+        Cambiar contraseña
+      </button>
+    </form>
+  </div>
 </section>
 
-<section *ngIf="parent" class="parents-action">
-  <h2>
-    Hijos creados
-  </h2>
-  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop2">
-    Crear un nuevo hijo
-  </button>
+<section *ngIf="isParent" class="parents-action">
+  <div class="parents-action-header">
+    <h2>
+      Hijos creados
+    </h2>
+    <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop2">
+      Crear un nuevo hijo
+    </button>
+  </div>
   <div *ngFor="let son of sonList" class="card">
     <img src="https://www.ngenespanol.com/wp-content/uploads/2018/09/oso-grizzly-caza-770x395.png" class="card-img-top"
       alt="Default child images">
     <div class="card-body">
-      <h5 class="card-title">{{son.email}}</h5>
-      <a href="#" class="btn btn-primary">Ajustes</a>
+      <h5 class="card-title">{{son.name}}</h5>
+      <button class="btn">Ajustes</button>
     </div>
   </div>
 </section>
@@ -40,17 +46,26 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h5 class="modal-title" id="staticBackdropLabel">Cambio contraseña</h5>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+        <form (ngSubmit)="updatePW()" [formGroup]="form">
+          <div class="control">
+            <label for="">Nueva Contraseña: </label>
+            <input (keyup)="verifyPW($event)" name="password" class="form-control" type="password"
+              formControlName="password">
+          </div>
+          <div class="control">
+            <label for="">Confirma Contraseña: </label>
+            <input (keyup)="verifyPW($event)" name="password_ver" class="form-control" type="password"
+              formControlName="password_ver">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            <button [disabled]="flag" id="btn-update" disabled type="submit"
+              class="btn btn-secondary">Actualizar</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -60,19 +75,23 @@
   aria-labelledby="staticBackdropLabel2" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel2">Creación hijo</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
+      <form (ngSubmit)="createChild()">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel2">Creación hijo</h5>
+        </div>
+        <div class="modal-body">
+          <label for="filmcollapse">Nombre</label>
+          <input class="ml-4" name="filmcollapse" collapse="filmcollapse" #name="ngModel" [(ngModel)]="child.name"
+            type="text" placeholder="Nombre de tu hijo" #name>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Crear</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

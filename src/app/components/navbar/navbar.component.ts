@@ -7,20 +7,16 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrls: ["./navbar.component.css"],
 })
 export class NavbarComponent implements OnInit {
-  public logged = null;
-  public admin = false;
-  public user = false;
 
   constructor(public authService: AuthService, ) {
-    this.logged = this.authService.parseJwt(localStorage.getItem('token'));
   }
 
   ngOnInit() {
-    this.authService.validateRole(this.logged.rol) ?
-                                  this.admin = true
-                                  : this.user = true;
+    // this.authService.validateRole(this.logged.rol) ?
+    //                               this.authService.admin = true
+    //                               :this.authService.admin = false
 
-    console.log('insted')
+    // console.log('insted')
   }
 
   logOut() {

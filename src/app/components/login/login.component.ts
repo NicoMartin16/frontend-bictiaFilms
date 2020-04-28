@@ -67,9 +67,9 @@ export class LoginComponent implements OnInit {
   profileRouter(token: string) {
     this.userLogged = this.service.parseJwt(token);
     this.service.validateRole(this.userLogged.rol) ?
-                              this.router.navigate(['admin'])
-                              : this.router.navigate(['profiles']);
-
+      (this.router.navigate(['admin']),
+        this.service.admin = true)
+      : (this.router.navigate(['profiles']),
+      this.service.user = true);
   }
-
 }

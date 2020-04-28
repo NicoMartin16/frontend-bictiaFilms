@@ -1,4 +1,4 @@
-export class Parent {
+export class Child {
   name: string;
   parent: string;
 }

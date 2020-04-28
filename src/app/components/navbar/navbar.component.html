@@ -17,14 +17,14 @@
         </button>
       </a>
     </li>
-    <li>
+    <li *ngIf='authService.user'>
       <a routerLink='/myprofile'>
         <button>
           <i class='fas fa-user-cog'></i>
         </button>
       </a>
     </li>
-    <li *ngIf='admin'>
+    <li *ngIf='authService.admin'>
       <a routerLink='/admin'>
         <button>
           <i class='fas fa-crown'></i>
@@ -32,7 +32,7 @@
       </a>
     </li>
     <li>
-      <a routerLink=''>
+      <a routerLink='/'>
         <button (click)=' logOut()'>
           <i class='fas fa-sign-out-alt'></i>
         </button>

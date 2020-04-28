@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
+import { Child } from 'src/app/models/child';
+import { ParentService } from '../../services/parent.service';
 
 @Component({
   selector: 'app-profiles',
@@ -8,9 +10,12 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 export class ProfilesComponent implements OnInit {
 
-  profiles: any[]
+  public profiles: Array<Child>
 
-  constructor(public service: AuthService) {
+  constructor(
+    private service: AuthService,
+    public parentService: ParentService
+  ) {
     this.getProfiles()
   }
 
@@ -29,7 +34,14 @@ export class ProfilesComponent implements OnInit {
 
   getProfiles() {
     const users = this.service.parseJwt(localStorage.getItem('token'));
-    console.log(users);
+    this.parentService.getChild(users.id).subscribe((res: any) => {
+      const childs = []
+      res.message.map(element => {
+        childs.push(element);
+      })
+
+      this.profiles = childs
+    });
   }
 
    // this.profiles = [

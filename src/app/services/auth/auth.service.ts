@@ -13,6 +13,8 @@ export class AuthService {
     })
   };
   public activeNav: Boolean = false;
+  public admin: Boolean = false;
+  public user: Boolean = false;
 
 
   constructor(private http: HttpClient, private router: Router) { }
