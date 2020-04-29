@@ -6,9 +6,9 @@
 }
 
 .main {
-    margin: 0 !important;
-    width: 100% !important;
-    height: 78vh;
+    margin: 0 0 5rem;
+    padding: 2rem;
+    width: 100%;
     background-color: #e9ecef;
     display: flex;
     flex-direction: column;
@@ -21,6 +21,7 @@ h4 {
 
 .cont {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     border: red;
     padding: 20px;
@@ -32,6 +33,11 @@ h4 {
     flex-direction: column;
     align-self: center;
     margin: 10px;
+    background: none;
+}
+
+.profile p{
+  align-self: center;
 }
 
 img {
@@ -40,12 +46,18 @@ img {
     margin-bottom: 10px;
     cursor: pointer;
     transition: 0.5s;
+    border-radius: 10px;
 }
 
 img:hover {
     filter: opacity(70%);
 }
 
-p {
+a {
+    align-self: center;
+    background: #acf171;
+    width: 20rem;
+    border-radius: 10px;
     text-align: center;
+    font-size: 1.3rem;
 }

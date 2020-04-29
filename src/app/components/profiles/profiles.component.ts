@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Child } from 'src/app/models/child';
 import { ParentService } from '../../services/parent.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profiles',
@@ -14,7 +15,8 @@ export class ProfilesComponent implements OnInit {
 
   constructor(
     private service: AuthService,
-    public parentService: ParentService
+    public parentService: ParentService,
+    public router: Router
   ) {
     this.getProfiles()
   }
@@ -37,6 +39,7 @@ export class ProfilesComponent implements OnInit {
     this.parentService.getChild(users.id).subscribe((res: any) => {
       const childs = []
       res.message.map(element => {
+        element.img = this.getImg()
         childs.push(element);
       })
 
@@ -44,24 +47,11 @@ export class ProfilesComponent implements OnInit {
     });
   }
 
-   // this.profiles = [
-    //   {
-    //     id: 'id1',
-    //     name: 'profile 1',
-    //     favFilms: [],
-    //   },
-    //   {
-    //     id: 'id2',
-    //     name: 'Profile 2',
-    //     favFilms: [],
-    //   },
-    //   {
-    //     id: 'id3',
-    //     name: 'Profile 3',
-    //     favFilms: [],
-    //   }
-    // ]
-
+  setProfile(event) {
+    const currentChild = event.path[1].value
+    localStorage.setItem('child', `${currentChild}`)
+    this.router.navigate(['home'])
+  }
 }
 
 
