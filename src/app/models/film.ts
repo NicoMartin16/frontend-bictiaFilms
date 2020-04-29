@@ -4,6 +4,6 @@ export class Film {
     date: string;
     url: string;
     image: any;
-    sinopsis: string;
+    sinapsis: string;
     collapse: string;
 }

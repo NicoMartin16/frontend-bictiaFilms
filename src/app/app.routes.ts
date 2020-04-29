@@ -5,6 +5,7 @@ import { UserRegisterComponent } from './components/user-register/user-register.
 import { AdminFilmsComponent } from "./components/admin-films/admin-films.component";
 import { ViewFilmComponent } from './components/view-film/view-film.component';
 import { ProfilesComponent } from './components/profiles/profiles.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
 
 export const ROUTES: Routes = [
     { path: '', component: LoginComponent },
@@ -13,5 +14,6 @@ export const ROUTES: Routes = [
     { path: 'admin', component: AdminFilmsComponent },
     { path: 'film/:idFilm', component: ViewFilmComponent },
     { path: 'profiles', component: ProfilesComponent },
+    { path: 'myprofile', component: MyProfileComponent },
     { path: '**', pathMatch: 'full', redirectTo: '' }
 ];

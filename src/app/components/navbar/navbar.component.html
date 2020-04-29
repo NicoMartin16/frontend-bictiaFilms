@@ -1,40 +1,42 @@
-<nav>
-    <a routerLink=''>
-        <img id=' logo' src='../../../assets/img/logo.png' alt='Logo de navegación' />
-    </a>
-    <input id='input-menu' type='checkbox' />
-    <div></div>
-    <label class='hamburguer-icon' for='input-menu'>
-        <span></span>
-        <span></span>
-        <span></span>
-    </label>
-    <ul class='items-nav'>
-        <li>
-            <a routerLink='/home'>
-                <button>
-                    <i class='fas fa-video'></i>
-                </button>
-            </a>
-        </li>
-        <li>
-            <button>
-                <i class='fas fa-user-cog'></i>
-            </button>
-        </li>
-        <li *ngIf='admin'>
-            <a routerLink='/admin'>
-                <button>
-                    <i class='fas fa-crown'></i>
-                </button>
-            </a>
-        </li>
-        <li>
-            <a routerLink=''>
-                <button (click)=' logOut()'>
-                    <i class='fas fa-sign-out-alt'></i>
-                </button>
-            </a>
-        </li>
-    </ul>
+<nav *ngIf="authService.activeNav">
+  <a routerLink=''>
+    <img id=' logo' src='../../../assets/img/logo.png' alt='Logo de navegación' />
+  </a>
+  <input id='input-menu' type='checkbox' />
+  <div></div>
+  <label class='hamburguer-icon' for='input-menu'>
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+  <ul class='items-nav'>
+    <li>
+      <a routerLink='/home'>
+        <button>
+          <i class='fas fa-video'></i>
+        </button>
+      </a>
+    </li>
+    <li *ngIf='authService.user'>
+      <a routerLink='/myprofile'>
+        <button>
+          <i class='fas fa-user-cog'></i>
+        </button>
+      </a>
+    </li>
+    <li *ngIf='authService.admin'>
+      <a routerLink='/admin'>
+        <button>
+          <i class='fas fa-crown'></i>
+        </button>
+      </a>
+    </li>
+    <li>
+      <a routerLink='/'>
+        <button (click)=' logOut()'>
+          <i class='fas fa-sign-out-alt'></i>
+        </button>
+      </a>
+    </li>
+  </ul>
 </nav>
