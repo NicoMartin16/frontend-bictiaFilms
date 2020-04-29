@@ -28,6 +28,7 @@ import { UserManagmentComponent } from './components/user-managment/user-managme
 import { ViewFilmComponent } from './components/view-film/view-film.component';
 import { SafePipe } from './pipes/safe.pipe';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { AdminService } from './services/admin.service';
 
 @NgModule({
     declarations: [
@@ -55,7 +56,8 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
     ],
     providers: [
         FilmService,
-        AuthService
+        AuthService,
+        AdminService
     ],
     bootstrap: [AppComponent],
 })
