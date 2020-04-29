@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FilmService } from "../../services/film.service";
 import { Film } from "../../models/film";
+import { ChildService } from '../../services/child.service';
+import swal from 'sweetalert2';
 
 @Component({
     selector: "app-home",
@@ -9,7 +11,9 @@ import { Film } from "../../models/film";
 })
 export class HomeComponent implements OnInit {
     public films: Film[];
-    constructor(private _filmService: FilmService) {}
+    constructor(
+        private _filmService: FilmService,
+        private _childService: ChildService) {}
 
     ngOnInit() {
         this.getFilms();
@@ -20,5 +24,18 @@ export class HomeComponent implements OnInit {
             this.films = res;
             console.log(this.films);
         });
+    }
+
+    addFav(idFilm){
+        let idChild = localStorage.getItem('child');
+        this._childService.addFav(idChild, idFilm).subscribe(
+            res => {
+                swal.fire({
+                    title: 'Pelicula favorita agregada',
+                    text: `La pelicula ha sido agregada a favoritos correctamente`,
+                    icon: 'success'
+                });
+            }
+        )
     }
 }
