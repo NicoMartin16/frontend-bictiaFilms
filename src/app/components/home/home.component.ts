@@ -3,6 +3,7 @@ import { FilmService } from "../../services/film.service";
 import { Film } from "../../models/film";
 import { ChildService } from '../../services/child.service';
 import swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
     selector: "app-home",
@@ -13,7 +14,8 @@ export class HomeComponent implements OnInit {
     public films: Film[];
     constructor(
         private _filmService: FilmService,
-        private _childService: ChildService) {}
+        private _childService: ChildService,
+        private router: Router) {}
 
     ngOnInit() {
         this.getFilms();
@@ -37,5 +39,9 @@ export class HomeComponent implements OnInit {
                 });
             }
         )
+    }
+
+    viewFilm(id){
+        this.router.navigate(['/film', id]);
     }
 }
