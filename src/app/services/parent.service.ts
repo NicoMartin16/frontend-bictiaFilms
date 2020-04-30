@@ -11,6 +11,9 @@ import { Child } from '../models/child';
 })
 export class ParentService {
 
+  public currChildName: string = ''
+  public currChildImg: string = ''
+
   private URLAPI = 'http://localhost:3000';
   private headers = {
     headers : new HttpHeaders({
@@ -66,22 +69,14 @@ export class ParentService {
     );
   }
 
-  updateParent(id: string, body: Parent) {
+  updatePW(id: string, password: Parent) {
+    return this._http.patch<any>(`${this.URLAPI}/parent/editPass/${id}`,
+      password,this.headers)
+  }
+
+  updateEmail(id: string, email: Parent) {
     return this._http.patch<any>(`${this.URLAPI}/parent/${id}`,
-      body,
-      this.headers).pipe(
-      map(res => res.message as Parent),
-      catchError(e => {
-        if(e.status == 400) {
-          return throwError(e);
-        }
-        swal.fire({
-          title: 'Error al actualizar contraseña',
-          icon: 'error'
-        });
-        return throwError(e);
-      })
-    );
+      email,this.headers)
   }
 
   getChild(id: string) {
@@ -91,9 +86,9 @@ export class ParentService {
   }
 
 
-  // deleteChild(child) {
-  //   return this._http.delete(`${this.URLAPI}/parent/deleteChild`,
-  //   this.headers)
-  //   .pipe((res) => res);
-  // }
+  deleteChild(parent: number,child: number) {
+    return this._http.delete(`${this.URLAPI}/parent/deleteChild/${parent}/${child}`,
+    this.headers)
+    .pipe((res) => res);
+  }
 }

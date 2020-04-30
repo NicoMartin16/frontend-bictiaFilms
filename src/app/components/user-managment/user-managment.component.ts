@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Parent } from 'src/app/models/parent';
 import { ParentService } from "../../services/parent.service";
 import swal from "sweetalert2";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-user-managment',
@@ -10,13 +12,22 @@ import swal from "sweetalert2";
 })
 export class UserManagmentComponent implements OnInit {
 
+  public adminForm: FormGroup;
   public parents = false;
   public admins = false;
   public parent: Parent;
   public parentList: Array<any>;
   public adminList: Array<any>;
 
-  constructor( private parentService: ParentService ) { }
+  constructor( private parentService: ParentService, private fb: FormBuilder, private adminService: AdminService) {
+    this.adminForm = fb.group({
+      name: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
+    })
+  }
 
   ngOnInit() {
 
@@ -48,6 +59,15 @@ export class UserManagmentComponent implements OnInit {
   }
 
   createAdmin() {
-    console.log('entrando');
+    let admin = this.adminForm.value
+    this.adminService.createAdmin(admin)
+    .subscribe(data => {
+      console.log(data);
+      admin === data;
+      swal.fire('Administrador Registrado exitosamente', '', 'success')
+    }, e => {
+      console.log(e);
+      swal.fire('Hubo un problema al el administrador', '', 'error')
+    })
   }
 }

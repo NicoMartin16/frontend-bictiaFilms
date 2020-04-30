@@ -10,6 +10,12 @@
     <span></span>
   </label>
   <ul class='items-nav'>
+    <li id="profile-info" *ngIf='authService.user'>
+      <img [src]="parentService.currChildImg" alt="">
+      <p>
+        {{parentService.currChildName}}
+      </p>
+    </li>
     <li>
       <a routerLink='/home'>
         <button>

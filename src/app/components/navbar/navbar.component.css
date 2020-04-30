@@ -126,3 +126,15 @@ button {
     color: whitesmoke;
     font-size: 1.2rem;
 }
+
+nav ul #profile-info{
+  height: 2rem;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+nav ul #profile-info img{
+  width: 20%;
+  border-radius: 10px;
+}

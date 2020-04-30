@@ -3,14 +3,14 @@
     <h1>
       Datos del usuario
     </h1>
-    <form class="form-inline myprofile-update" (ngSubmit)="updateProfile()" [formGroup]="form">
+    <form class="form-inline myprofile-update" (ngSubmit)="updateEmail()" [formGroup]="formEmail">
       <p>
         {{user.email}}
       </p>
       <div class="form-group ml-4">
         <label for="email" class="sr-only"> Coloque su uevo correo</label>
-        <input name="email" formControlName="email" type="email" class="form-control" id="inputEmail2"
-          placeholder="Nuevo correo">
+        <input name="email" type="email" class="form-control" id="inputEmail2" formControlName="email"
+          placeholder="Nuevo correo" required>
       </div>
       <button type="submit" class="btn btn-primary">
         Actualizar correo
@@ -36,7 +36,7 @@
       alt="Default child images">
     <div class="card-body">
       <h5 class="card-title">{{son.name}}</h5>
-      <button class="btn">Ajustes</button>
+      <button [value]="son._id" (click)="deleteChild($event)" class="btn btn-danger">Eliminar</button>
     </div>
   </div>
 </section>
@@ -52,12 +52,11 @@
         <form (ngSubmit)="updatePW()" [formGroup]="form">
           <div class="control">
             <label for="">Nueva Contraseña: </label>
-            <input (keyup)="verifyPW($event)" name="password" class="form-control" type="password"
-              formControlName="password">
+            <input (keyup)="verifyPW()" name="password" class="form-control" type="password" formControlName="password">
           </div>
           <div class="control">
             <label for="">Confirma Contraseña: </label>
-            <input (keyup)="verifyPW($event)" name="password_ver" class="form-control" type="password"
+            <input (keyup)="verifyPW()" name="password_ver" class="form-control" type="password"
               formControlName="password_ver">
           </div>
           <div class="modal-footer">

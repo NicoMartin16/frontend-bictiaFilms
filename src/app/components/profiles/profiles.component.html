@@ -3,7 +3,7 @@
   <div class="cont">
     <ng-container *ngFor="let profile of profiles">
       <button [value]="profile._id" class="profile" (click)="setProfile($event)">
-        <img [src]="profile.img" alt="Main profile picture">
+        <img [src]="profile.img" [alt]="profile.name">
         <p>{{profile.name}}</p>
       </button>
     </ng-container>
