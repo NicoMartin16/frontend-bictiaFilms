@@ -39,6 +39,14 @@ export class HomeComponent implements OnInit {
                     text: `La pelicula ha sido agregada a favoritos correctamente`,
                     icon: 'success'
                 });
+            this.getFavoriteList();
+
+            }, err => {
+                swal.fire({
+                    title: 'La pelicula ya esta en favoritos',
+                    text: `La se encuentra en favoritos`,
+                    icon: 'error'
+                });
             }
         )
     }
