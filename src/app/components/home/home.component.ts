@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
     public films: Film[];
+    public favoriteList: Film[];
     constructor(
         private _filmService: FilmService,
         private _childService: ChildService,
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
         this.getFilms();
+        this.getFavoriteList();
     }
 
     getFilms() {
@@ -43,5 +45,16 @@ export class HomeComponent implements OnInit {
 
     viewFilm(id){
         this.router.navigate(['/film', id]);
+    }
+
+    getFavoriteList(){
+        let id = localStorage.getItem('child');
+        this._childService.getChildById(id).subscribe(
+            (res: any) => {
+                console.log(res[0].favFilms);
+                this.favoriteList = res[0].favFilms;
+                console.log(this.favoriteList);
+            }
+        )
     }
 }
