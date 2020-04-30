@@ -7,18 +7,17 @@ import { map } from "rxjs/operators";
 @Injectable()
 export class FilmService {
   apiURL = "http://localhost:3000";
-  private token = localStorage.getItem("token");
+
   private headers = {
     headers: new HttpHeaders({
-      "Content-Type": "application/json",
-      Authorization: `bearer ${this.token}`,
+      'Authorization': `Bearer ${localStorage.getItem("token")}`,
     }),
   };
 
   constructor(private http: HttpClient) {}
 
   createFilm(body) {
-    return this.http.post(`${this.apiURL}/film`, body)
+    return this.http.post(`${this.apiURL}/film`, body, this.headers)
       .pipe((res) => res);
   }
 

@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
     }, (error: any) => {
       if (error) {
         swal.fire({
-          title: 'Email o contraseña incrrectos',
+          title: 'Email o contraseña incorrectos',
           text: `Compruebe los datos y vuelva a intentar por favor`,
           icon: 'error'
         });
