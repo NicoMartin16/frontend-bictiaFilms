@@ -35,7 +35,7 @@ export class AddFilmComponent implements OnInit {
     data.append("name", this.film.name);
     data.append("date", this.film.date);
     data.append("url", this.film.url);
-    data.append("sinopsis", this.film.sinopsis);
+    data.append("sinapsis", this.film.sinapsis);
     // const image = this.setupFile(this.photofile);
     this.filmService.createFilm(data).subscribe((res: any) => {
       if (res.statusCode === 201) {

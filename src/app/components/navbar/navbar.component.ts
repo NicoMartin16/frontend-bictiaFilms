@@ -1,41 +1,28 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input, Output } from "@angular/core";
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
-    selector: "navbar",
-    templateUrl: "./navbar.component.html",
-    styleUrls: ["./navbar.component.css"],
+  selector: "navbar",
+  templateUrl: "./navbar.component.html",
+  styleUrls: ["./navbar.component.css"],
 })
 export class NavbarComponent implements OnInit {
-    public logged = null;
-    public admin = false;
-    public user = false;
 
-    constructor() {
-        this.logged = this.parseJwt(localStorage.getItem('token'));
-    }
+  constructor(public authService: AuthService, ) {
+  }
 
-    ngOnInit() {
-        this.validateRole();
-    }
+  ngOnInit() {
+    // this.authService.validateRole(this.logged.rol) ?
+    //                               this.authService.admin = true
+    //                               :this.authService.admin = false
 
-    validateRole() {
-        console.log(this.logged)
-        if (this.logged.rol === 'ROL_ADMIN') {
-            return this.admin = true;
-        }
-    }
+    // console.log('insted')
+  }
 
-    // Decodificar el token
-    parseJwt(token: any) {
-        if (token){
-            const base64Url = token.split('.')[1];
-            const base64 = base64Url.replace('-', '+').replace('_', '/');
-            return JSON.parse(window.atob(base64));
-        }
-    }
-
-    logOut() {
-        localStorage.setItem('token', '');
-    }
+  logOut() {
+    localStorage.setItem('token', '');
+    localStorage.setItem('child', '');
+    this.authService.activeNav = false;
+  }
 
 }

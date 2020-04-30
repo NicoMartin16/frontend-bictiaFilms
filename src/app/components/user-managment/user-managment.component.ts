@@ -46,4 +46,8 @@ export class UserManagmentComponent implements OnInit {
     this.admins = true;
     this.parents = false;
   }
+
+  createAdmin() {
+    console.log('entrando');
+  }
 }

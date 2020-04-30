@@ -1,45 +1,69 @@
-<navbar></navbar>
 <div class="row animated fadeIn slow">
-    <div class="col-md-12 contenedor-portada">
-        <img class="img-fluid" src="../../../assets/img/ejemplo2.jpg" alt="">
-    </div>
+  <div class="col-md-12 contenedor-portada">
+    <img class="img-fluid" src="../../../assets/img/ejemplo2.jpg" alt="">
+  </div>
 </div>
 <div class="container animated fadeIn slow">
-    <h2 class="mt-3">Mi lista</h2>
-    <div class="row list-films">
-        <div class="col-md-3 col-sm-12 film" *ngIf="films" [routerLink]="['/film', films[1]._id]">
-            <img class="img-fluid" src="{{films[1].image}}" alt="">
-            <a>
-                <i class="far fa-play-circle"></i>
-            </a>
-        </div>
-        <div class="col-md-3 col-sm-12 film" *ngIf="films" [routerLink]="['/film', films[2]._id]">
-            <img class="img-fluid" src="{{films[2].image}}" alt="">
-            <a>
-                <i class="far fa-play-circle"></i>
-            </a>
-        </div>
-        <div class="col-md-3 col-sm-12 film" *ngIf="films" [routerLink]="['/film', films[3]._id]">
-            <img class="img-fluid" src="{{films[3].image}}" alt="">
-            <a>
-                <i class="far fa-play-circle"></i>
-            </a>
-        </div>
-        <div class="col-md-3 col-sm-12 film" *ngIf="films" [routerLink]="['/film', films[4]._id]">
-            <img class="img-fluid" src="{{films[4].image}}" alt="">
-            <a>
-                <i class="far fa-play-circle"></i>
-            </a>
-        </div>
+  <h2 class="mt-3">Mi lista</h2>
+  <div class="row list-films">
+    <div class="col-md-3 col-sm-12 film" *ngIf="films">
+      <img class="img-fluid" src="{{films[1].image}}" alt="">
+      <div class="container-icons">
+        <a class="play" (click)="viewFilm(films[1]._id)">
+          <i class="far fa-play-circle"></i>
+        </a>
+        <a class="fav" (click)="addFav(films[1]._id)">
+          <i class="fas fa-heart"></i>
+        </a>
+      </div>
     </div>
-    <h2>Catalogo</h2>
-    <div class="row list-films">
-        <div class="col-md-3 col-sm-12 film" *ngFor="let film of films" [routerLink]="['/film', film._id]">
-            <img class="img-fluid" src="{{film.image}}" alt="">
-            <a>
-                <i class="far fa-play-circle"></i>
-            </a>
+    <div class="col-md-3 col-sm-12 film" *ngIf="films">
+      <img class="img-fluid" src="{{films[2].image}}" alt="">
+      <div class="container-icons">
+        <a class="play" (click)="viewFilm(films[2]._id)">
+          <i class="far fa-play-circle"></i>
+        </a>
+        <a class="fav" (click)="addFav(films[2]._id)">
+          <i class="fas fa-heart"></i>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-12 film" *ngIf="films">
+      <img class="img-fluid" src="{{films[3].image}}" alt="">
+      <div class="container-icons">
+        <a class="play" (click)="viewFilm(films[3]._id)">
+          <i class="far fa-play-circle"></i>
+        </a>
+        <a class="fav" (click)="addFav(films[3]._id)">
+          <i class="fas fa-heart"></i>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-12 film" *ngIf="films" >
+      <img class="img-fluid" src="{{films[4].image}}" alt="">
+      <div class="container-icons">
+        <a class="play" (click)="viewFilm(films[4]._id)">
+          <i class="far fa-play-circle"></i>
+        </a>
+        <a class="fav" (click)="addFav(films[4]._id)">
+          <i class="fas fa-heart"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <h2>Catalogo</h2>
+  <div class="row list-films">
+    <div class="col-md-3 col-sm-12 film" *ngFor="let film of films">
+      <img class="img-fluid" src="{{film.image}}" alt="">
+      <div class="container-icons">
+        <a class="play" (click)="viewFilm(film._id)">
+          <i class="far fa-play-circle"></i>
+        </a>
+        <a class="fav" (click)="addFav(film._id)">
+          <i class="fas fa-heart"></i>
+        </a>
+      </div>
 
-        </div>
     </div>
+  </div>
 </div>
