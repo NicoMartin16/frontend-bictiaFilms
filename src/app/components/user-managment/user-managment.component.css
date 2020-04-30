@@ -6,7 +6,7 @@
   height: 25rem;
   margin-bottom: 5rem;
 }
-button{
+.cbutton{
   background-color: #63e1d3;
   border-radius: 10px;
   height: 2rem;
@@ -75,4 +75,9 @@ button{
 
 .create-admin button{
   width: 30%;
+}
+
+
+h3 {
+  margin: 10px;
 }

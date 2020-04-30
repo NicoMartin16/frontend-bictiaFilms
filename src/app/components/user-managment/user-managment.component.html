@@ -6,7 +6,7 @@
       <p class="card-text">
         Actualiza, elimina o crea usuarios de rol administrador (Solo aquí podras crearlos).
       </p>
-      <button (click)="showAdmins()"> Acceder </button>
+      <button class="cbutton" (click)="showAdmins()"> Acceder </button>
     </div>
   </div>
 
@@ -17,7 +17,7 @@
       <p class="card-text">
         Revisa los padres registrados y sus respectivos ID's.
       </p>
-      <button (click)="showParents()"> Acceder </button>
+      <button class="cbutton" (click)="showParents()"> Acceder </button>
     </div>
   </div>
 </section>
@@ -44,7 +44,7 @@
 
 <section *ngIf="admins" class="admin-ui">
   <div class="create-admin">
-    <button (click)="createAdmin()">Crear admin</button>
+    <button class="cbutton" type="button" data-toggle="modal" data-target="#staticBackdrop">Crear admin</button>
   </div>
   <table class=" table user-list">
     <thead>
@@ -59,11 +59,59 @@
         <td>{{i.name}}</td>
         <td>{{i.email}}</td>
         <td>
-          <button value="{{i._id}}" class="user-actions"> Actualizar </button>
+          <button class="cbutton" value="{{i._id}}" class="user-actions"> Actualizar </button>
           <br>
-          <button value="{{i._id}}" class="user-actions btn-danger"> Eliminar </button>
+          <button class="cbutton" value="{{i._id}}" class="user-actions btn-danger"> Eliminar </button>
         </td>
       </tr>
     </tbody>
   </table>
 </section>
+
+
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <h3>Crear Amdministrador</h3>
+      <form class="form-group" [formGroup]="adminForm" (ngSubmit)="createAdmin()">
+        <div class="form-group">
+          <label for="name" class="control-label col-md-6"> Nombre: </label>
+          <div class="col-md-12">
+            <input class="form-control" type="text" formControlName="name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastName" class="control-label col-md-6">Apellido: </label>
+          <div class="col-md-12">
+            <input class="form-control" type="text" name="lastName" id="lastName" formControlName="lastName">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email" class="control-label col-md-6">Correo Electrónico: </label>
+          <div class="col-md-12">
+            <input class="form-control" type="text" name="email" id="email" formControlName="email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password" class="control-label col-md-6">Contraseña: </label>
+          <div class="col-md-12">
+            <input class="form-control" type="password" name="password" id="password" formControlName="password">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phone" class="control-label col-md-6">Teléfono: </label>
+          <div class="col-md-12">
+            <input class="form-control" type="text" name="phone" id="phone" formControlName="phone">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="adminForm.invalid">Crear</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
