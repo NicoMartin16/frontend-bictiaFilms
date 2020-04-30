@@ -50,6 +50,8 @@ export class ProfilesComponent implements OnInit {
   setProfile(event) {
     const currentChild = event.path[1].value
     localStorage.setItem('child', `${currentChild}`)
+    this.parentService.currChildImg = event.path[0].src
+    this.parentService.currChildName =event.path[0].alt
     this.router.navigate(['home'])
   }
 }

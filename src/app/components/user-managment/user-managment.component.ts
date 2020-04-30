@@ -59,7 +59,6 @@ export class UserManagmentComponent implements OnInit {
   }
 
   createAdmin() {
-    console.log(this.adminForm.value);
     let admin = this.adminForm.value
     this.adminService.createAdmin(admin)
     .subscribe(data => {
@@ -68,7 +67,7 @@ export class UserManagmentComponent implements OnInit {
       swal.fire('Administrador Registrado exitosamente', '', 'success')
     }, e => {
       console.log(e);
-      swal.fire('Hubo un problema al crear la canción', '', 'error')
+      swal.fire('Hubo un problema al el administrador', '', 'error')
     })
   }
 }
