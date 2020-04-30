@@ -24,6 +24,13 @@
         </button>
       </a>
     </li>
+    <li *ngIf='authService.user'>
+      <a routerLink='/profiles'>
+        <button>
+          <i class="fas fa-users"></i>
+        </button>
+      </a>
+    </li>
     <li *ngIf='authService.admin'>
       <a routerLink='/admin'>
         <button>

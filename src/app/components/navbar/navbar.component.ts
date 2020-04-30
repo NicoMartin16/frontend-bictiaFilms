@@ -21,6 +21,7 @@ export class NavbarComponent implements OnInit {
 
   logOut() {
     localStorage.setItem('token', '');
+    localStorage.setItem('child', '');
     this.authService.activeNav = false;
   }
 
