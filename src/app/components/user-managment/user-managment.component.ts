@@ -65,6 +65,7 @@ export class UserManagmentComponent implements OnInit {
       console.log(data);
       admin === data;
       swal.fire('Administrador Registrado exitosamente', '', 'success')
+      this.getUserAdmins()
     }, e => {
       console.log(e);
       swal.fire('Hubo un problema al el administrador', '', 'error')

@@ -72,6 +72,10 @@
     transition: all ease 0.5s;
 }
 
+.list-films .film a.fav.favList{
+    color: #acf171;
+}
+
 .list-films .film a.fav:hover {
     opacity: 1;
 }

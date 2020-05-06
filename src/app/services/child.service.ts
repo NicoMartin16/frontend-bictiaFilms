@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import swal from 'sweetalert2';
+import { Child } from '../models/child';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,12 @@ export class ChildService {
         });
         return throwError(e);
       })
+    );
+  }
+
+  getChildById(id: any): Observable<Child>{
+    return this._http.get<any>(`${this.apiURL}/child/childbyid/${id}`).pipe(
+      map(res => res.message as Child)
     );
   }
   
